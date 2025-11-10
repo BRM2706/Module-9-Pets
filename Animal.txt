@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+
+// this is the main animal class
+public class Animal {
+    protected String name;
+    protected int age;
+
+    // constructor for animal
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // this method will be changed in other classes
+    public void speak() {
+        System.out.println(name + " makes a sound.");
+    }
+}
+
+// dog is a type of animal
+class Dog extends Animal {
+    public Dog(String name, int age) {
+        super(name, age); // call animal's constructor
+    }
+
+    // this replaces the speak method
+    @Override
+    public void speak() {
+        System.out.println(name + " barks!");
+    }
+}
+
+// cat is also a type of animal
+class Cat extends Animal {
+    public Cat(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void speak() {
+        System.out.println(name + " meows!");
+    }
+}
+
+// this class is for the owner of a pet
+class Owner {
+    private String ownerName;
+
+    public Owner(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+}
+
+// pet is an animal that has an owner
+class Pet extends Animal {
+    private Owner owner;
+
+    public Pet(String name, int age, Owner owner) {
+        super(name, age);
+        this.owner = owner;
+    }
+
+    @Override
+    public void speak() {
+        System.out.println(name + " is a pet owned by " + owner.getOwnerName() + ".");
+    }
+}
