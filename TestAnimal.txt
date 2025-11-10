@@ -1,0 +1,24 @@
+
+// this class runs everything
+public class TestAnimals {
+    public static void main(String[] args) {
+        // make an owner
+        Owner brm = new Owner("Brian");
+
+        // make some animals
+        Animal a1 = new Dog("Rex", 3);
+        Animal a2 = new Cat("Luna", 2);
+        Animal a3 = new Pet("Buddy", 5, brm);
+
+        // put all animals in a list (shows polymorphism)
+        ArrayList<Animal> zoo = new ArrayList<Animal>();
+        zoo.add(a1);
+        zoo.add(a2);
+        zoo.add(a3);
+
+        // go through the list and make each animal speak
+        for (Animal a : zoo) {
+            a.speak();
+        }
+    }
+}
